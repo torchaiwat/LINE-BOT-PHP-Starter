@@ -31,13 +31,6 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 		
-		if($text == 'บอกมา'){//คำอื่นๆ ที่ต้องการให้ Bot ตอบกลับเมื่อโพสคำนี้มา เช่นโพสว่า บอกมา ให้ตอบว่า ความลับนะ 
-			$response_format_text = ['contentType'=>1,"toType"=>1,"text"=>"ความลับนะ"]; 
-		}else{//นอกนั้นให้โพส สวัสดี 
-			$response_format_text = ['contentType'=>1,"toType"=>1,"text"=>"สวัสดี"]; 
-		}
-		}
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -48,7 +41,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		//}
+		}
 	}
 }
 echo "OK";
